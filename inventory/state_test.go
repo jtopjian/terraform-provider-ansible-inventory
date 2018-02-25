@@ -63,9 +63,7 @@ var expectedInventory = map[string]interface{}{
 		},
 	},
 	"group_2": map[string]interface{}{
-		"hosts":    []string(nil),
-		"children": []string(nil),
-		"vars":     map[string]interface{}{},
+		"vars": map[string]interface{}{},
 	},
 	"_meta": map[string]interface{}{
 		"hostvars": map[string]interface{}{
