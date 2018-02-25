@@ -10,8 +10,8 @@ var expectedState = State{
 	Modules: []Module{
 		Module{
 			Resources: map[string]Resource{
-				"ansibleinventory_host.host_1": Resource{
-					Type: "ansibleinventory_host",
+				"ansible_host.host_1": Resource{
+					Type: "ansible_host",
 					Primary: Primary{
 						ID: "host_1",
 						Attributes: map[string]string{
@@ -25,8 +25,8 @@ var expectedState = State{
 						},
 					},
 				},
-				"ansibleinventory_group.group_1": Resource{
-					Type: "ansibleinventory_group",
+				"ansible_group.group_1": Resource{
+					Type: "ansible_group",
 					Primary: Primary{
 						ID: "group_1",
 						Attributes: map[string]string{
@@ -39,8 +39,8 @@ var expectedState = State{
 						},
 					},
 				},
-				"ansibleinventory_group.group_2": Resource{
-					Type: "ansibleinventory_group",
+				"ansible_group.group_2": Resource{
+					Type: "ansible_group",
 					Primary: Primary{
 						ID: "group_2",
 						Attributes: map[string]string{

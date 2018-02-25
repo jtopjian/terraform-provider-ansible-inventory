@@ -1,4 +1,4 @@
-package ansibleinventory
+package ansible
 
 import (
 	"github.com/hashicorp/terraform/helper/schema"
@@ -9,8 +9,8 @@ func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{},
 		ResourcesMap: map[string]*schema.Resource{
-			"ansibleinventory_group": resourceAnsibleInventoryGroup(),
-			"ansibleinventory_host":  resourceAnsibleInventoryHost(),
+			"ansible_group": resourceAnsibleInventoryGroup(),
+			"ansible_host":  resourceAnsibleInventoryHost(),
 		},
 	}
 }

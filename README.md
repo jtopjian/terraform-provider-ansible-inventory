@@ -27,14 +27,14 @@ resource "openstack_compute_instance_v2" "ansible" {
   }
 }
 
-resource "ansibleinventory_group" "group_1" {
+resource "ansible_group" "group_1" {
   name = "group_1"
 }
 
-resource "ansibleinventory_host" "ansible" {
+resource "ansible_host" "ansible" {
   count  = 3
   name   = "${format("ansible-%02d", count.index+1)}"
-  groups = ["${ansibleinventory_group.group_1.name}"]
+  groups = ["${ansible_group.group_1.name}"]
 
   vars {
     ansible_host = "${replace(element(openstack_compute_instance_v2.ansible.*.access_ip_v6, count.index), "/[][]/", "")}"
@@ -55,13 +55,13 @@ $ ansible -m ping all
 Terraform Resources
 -------------------
 
-### ansibleinventory_group
+### ansible_group
 
 * `name` - (Required) - The name of the group.
 * `children` - (Optional) - A list of children of the group.
 * `vars` - (Optional) - Arbitrary key/value variables.
 
-### ansibleinventory_host
+### ansible_host
 
 * `name` - (Required) - The name of the host.
 * `groups` - (Optional) - A list of groups that the host belongs to.
@@ -83,7 +83,7 @@ boilerplate templating to be useful.
 In my opinion, the best way to provide an inventory to Ansible is to give the
 user full control over what data is provided to Ansible. To do this easily, the
 user needs an easy way to model data. This is where the Terraform Provider comes
-in. `terraform-provider-ansibleinventory` provides a bridge between a user's
+in. `terraform-provider-ansible` provides a bridge between a user's
 Terraform resources and the data which Ansible needs for an inventory.
 
 > With that said, [terraform-inventory](https://github.com/adammck/terraform-inventory)
@@ -109,8 +109,8 @@ $ go get github.com/jtopjian/terraform-provider-ansible-inventory
 $ cd $GOPATH/src/github.com/jtopjian/terraform-provider-ansible-inventory
 $ cd provider
 $ make build
-$ sudo mv $GOPATH/bin/terraform-provider-ansibleinventory /path/to/dir/with/terraform
+$ sudo mv $GOPATH/bin/terraform-provider-ansible /path/to/dir/with/terraform
 $ cd ../inventory
 $ make build
-$ ln -s $GOPATH/bin/terraform-inventory /path/to/ansible/hosts
+$ ln -s $GOPATH/bin/terraform-ansible-inventory /path/to/ansible/hosts
 ```

@@ -4,7 +4,7 @@ GOFMT_FILES?=$$(find . -name '*.go' |grep -v vendor)
 default: build
 
 build: fmtcheck
-	go build -o $(GOPATH)/bin/terraform-provider-ansibleinventory
+	go build -o $(GOPATH)/bin/terraform-provider-ansible
 
 test: fmtcheck
 	go test -i $(TEST) || exit 1

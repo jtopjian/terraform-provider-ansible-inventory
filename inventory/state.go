@@ -19,7 +19,7 @@ func (r State) GetGroups() ([]string, error) {
 
 	for _, m := range r.Modules {
 		for _, resource := range m.Resources {
-			if resource.Type == "ansibleinventory_group" {
+			if resource.Type == "ansible_group" {
 				groups = append(groups, resource.Primary.ID)
 			}
 		}
@@ -31,7 +31,7 @@ func (r State) GetGroups() ([]string, error) {
 func (r State) GetGroup(group string) (*Resource, error) {
 	for _, m := range r.Modules {
 		for _, resource := range m.Resources {
-			if resource.Type == "ansibleinventory_group" {
+			if resource.Type == "ansible_group" {
 				if resource.Primary.ID == group {
 					return &resource, nil
 				}
@@ -90,7 +90,7 @@ func (r State) GetHostsForGroup(group string) ([]string, error) {
 
 	for _, m := range r.Modules {
 		for _, resource := range m.Resources {
-			if resource.Type == "ansibleinventory_host" {
+			if resource.Type == "ansible_host" {
 				for attrName, attr := range resource.Primary.Attributes {
 					if strings.HasPrefix(attrName, "groups.") {
 						if group == attr {
@@ -110,7 +110,7 @@ func (r State) GetVarsForHost(host string) (map[string]interface{}, error) {
 
 	for _, m := range r.Modules {
 		for _, resource := range m.Resources {
-			if resource.Type == "ansibleinventory_host" {
+			if resource.Type == "ansible_host" {
 				for attrName, attr := range resource.Primary.Attributes {
 					if strings.HasPrefix(attrName, "vars.") {
 						if attrName == "vars.%" {

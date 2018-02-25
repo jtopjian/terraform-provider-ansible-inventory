@@ -1,4 +1,4 @@
-package ansibleinventory
+package ansible
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 )
 
 var testAccProviders = map[string]terraform.ResourceProvider{
-	"ansibleinventory": Provider(),
+	"ansible": Provider(),
 }
 
 func TestProvider(t *testing.T) {

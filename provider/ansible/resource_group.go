@@ -1,4 +1,4 @@
-package ansibleinventory
+package ansible
 
 import (
 	"github.com/hashicorp/terraform/helper/schema"
