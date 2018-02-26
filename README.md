@@ -1,3 +1,14 @@
+No Longer Maintained
+====================
+
+This repository is no longer maintained since @nbering's implementation is virtually identical. You can find that here:
+
+https://github.com/nbering/terraform-provider-ansible
+
+The Go-based Ansible Inventory script can be found here:
+
+https://github.com/jtopjian/ansible-terraform-inventory
+
 Terraform Ansible Inventory
 ===========================
 
